@@ -3,108 +3,710 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pay Slip Generator</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- =====================================================
+     TOOLBAR
+===================================================== -->
+
 <div class="toolbar">
-  <div class="toolbar-title">Pay Slip Generator</div>
+
+  <div class="toolbar-title">
+    Pay Slip Generator
+  </div>
+
   <label class="upload-btn">
     Upload Logo
-    <input type="file" id="logoInput" accept="image/*" hidden>
+    <input
+      type="file"
+      id="logoInput"
+      accept="image/*"
+      hidden
+    >
   </label>
-  <button onclick="window.print()">Print / Save PDF</button>
-  <button class="secondary" onclick="clearForm()">Clear</button>
+
+  <button onclick="window.print()">
+    Print / Save PDF
+  </button>
+
+  <button
+    class="secondary"
+    onclick="clearForm()"
+  >
+    Clear
+  </button>
+
 </div>
+
+
+<!-- =====================================================
+     HEADER EDITOR
+===================================================== -->
 
 <div class="editor">
-  <label>School / Company Name
-    <input id="companyName" value="Delhi Public School Ludhiana">
+
+  <label>
+    School / Company Name
+
+    <input
+      id="companyName"
+      value="Delhi Public School Ludhiana"
+    >
   </label>
-  <label>Address
-    <input id="address" value="Vill. Jhammat, P.O. Ayali Kalan, Ludhiana 142 027">
+
+
+  <label>
+    Address
+
+    <input
+      id="address"
+      value="Vill. Jhammat, P.O. Ayali Kalan, Ludhiana 142 027"
+    >
   </label>
-  <label>Phone
-    <input id="phone" value="Phone : +91 70870 19118, 70870 20118">
+
+
+  <label>
+    Phone
+
+    <input
+      id="phone"
+      value="Phone : +91 70870 19118, 70870 20118"
+    >
   </label>
-  <label>Pay Slip Title
-    <input id="slipTitle" value="Pay Slip for the Month of January - 2019">
+
+
+  <label>
+    Pay Slip Title
+
+    <input
+      id="slipTitle"
+      value="Pay Slip for the Month of January - 2019"
+    >
   </label>
+
 </div>
 
-<div class="page" id="paySlip">
+
+<!-- =====================================================
+     A4 PAGE
+===================================================== -->
+
+<div
+  class="page"
+  id="paySlip"
+>
+
+  <!-- ===================================================
+       HEADER
+  ==================================================== -->
+
   <header class="header">
+
     <div class="logo-box">
-      <img id="logoPreview" alt="">
+
+      <img
+        id="logoPreview"
+        alt=""
+      >
+
     </div>
+
+
     <div class="header-text">
-      <div class="company editable" contenteditable="true" id="companyText">Delhi Public School Ludhiana</div>
-      <div class="address editable" contenteditable="true" id="addressText">Vill. Jhammat, P.O. Ayali Kalan, Ludhiana 142 027</div>
-      <div class="phone editable" contenteditable="true" id="phoneText">Phone : +91 70870 19118, 70870 20118</div>
-      <div class="slip-title editable" contenteditable="true" id="titleText">Pay Slip for the Month of January - 2019</div>
+
+      <div
+        class="company editable"
+        contenteditable="true"
+        id="companyText"
+      >
+        Delhi Public School Ludhiana
+      </div>
+
+
+      <div
+        class="address editable"
+        contenteditable="true"
+        id="addressText"
+      >
+        Vill. Jhammat, P.O. Ayali Kalan, Ludhiana 142 027
+      </div>
+
+
+      <div
+        class="phone editable"
+        contenteditable="true"
+        id="phoneText"
+      >
+        Phone : +91 70870 19118, 70870 20118
+      </div>
+
+
+      <div
+        class="slip-title editable"
+        contenteditable="true"
+        id="titleText"
+      >
+        Pay Slip for the Month of January - 2019
+      </div>
+
     </div>
+
   </header>
+
+
+  <!-- ===================================================
+       TOP LINE
+  ==================================================== -->
 
   <div class="top-line"></div>
 
+
+  <!-- ===================================================
+       EMPLOYEE INFORMATION
+  ==================================================== -->
+
   <section class="employee-info">
+
+
     <div class="info-row">
-      <div class="label">Name</div><div class="colon">:</div><div class="value editable" contenteditable="true">Shivika Dogra</div>
-      <div class="label right-label">Working Days</div><div class="colon">:</div><div class="value editable" contenteditable="true">26.00</div>
+
+      <div
+        class="label editable"
+        contenteditable="true"
+      >
+        Name
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        Shivika Dogra
+      </div>
+
+
+      <div
+        class="label right-label editable"
+        contenteditable="true"
+      >
+        Working Days
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        26.00
+      </div>
+
     </div>
+
+
     <div class="info-row">
-      <div class="label">Employee Code</div><div class="colon">:</div><div class="value editable" contenteditable="true">41160</div>
-      <div class="label right-label">Present Days</div><div class="colon">:</div><div class="value editable" contenteditable="true">26.00</div>
+
+      <div
+        class="label editable"
+        contenteditable="true"
+      >
+        Employee Code
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        41160
+      </div>
+
+
+      <div
+        class="label right-label editable"
+        contenteditable="true"
+      >
+        Present Days
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        26.00
+      </div>
+
     </div>
+
+
     <div class="info-row">
-      <div class="label">Designation</div><div class="colon">:</div><div class="value editable" contenteditable="true">PRT</div>
-      <div class="label right-label">Department</div><div class="colon">:</div><div class="value editable" contenteditable="true">TEACHERS</div>
+
+      <div
+        class="label editable"
+        contenteditable="true"
+      >
+        Designation
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        PRT
+      </div>
+
+
+      <div
+        class="label right-label editable"
+        contenteditable="true"
+      >
+        Department
+      </div>
+
+      <div class="colon">:</div>
+
+      <div
+        class="value editable"
+        contenteditable="true"
+      >
+        TEACHERS
+      </div>
+
     </div>
+
   </section>
 
+
+  <!-- ===================================================
+       SALARY TABLE
+  ==================================================== -->
+
   <table class="salary-table">
+
     <colgroup>
-      <col class="earn-name"><col class="amount">
-      <col class="ded-name"><col class="amount2">
+
+      <col class="earn-name">
+
+      <col class="amount">
+
+      <col class="ded-name">
+
+      <col class="amount2">
+
     </colgroup>
+
+
     <thead>
+
       <tr>
-        <th>Earning Details</th>
-        <th>Amt(Rs.)</th>
-        <th>Deduction Details</th>
-        <th>Amt(Rs.)</th>
+
+        <th
+          class="editable"
+          contenteditable="true"
+        >
+          Earning Details
+        </th>
+
+
+        <th
+          class="editable"
+          contenteditable="true"
+        >
+          Amt(Rs.)
+        </th>
+
+
+        <th
+          class="editable"
+          contenteditable="true"
+        >
+          Deduction Details
+        </th>
+
+
+        <th
+          class="editable"
+          contenteditable="true"
+        >
+          Amt(Rs.)
+        </th>
+
       </tr>
+
     </thead>
+
+
     <tbody id="salaryBody">
-      <tr><td class="editable" contenteditable="true">Basic Salary</td><td class="num editable" contenteditable="true">36500.00</td><td class="editable" contenteditable="true">PF</td><td class="num editable" contenteditable="true">4774.00</td></tr>
-      <tr><td class="editable" contenteditable="true">GRADE PAY</td><td class="num editable" contenteditable="true">0.00</td><td class="editable" contenteditable="true">TDS</td><td class="num editable" contenteditable="true">2000.00</td></tr>
-      <tr><td class="editable" contenteditable="true">DA</td><td class="num editable" contenteditable="true">0.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">Dearness Allowance 7TH</td><td class="num editable" contenteditable="true">3285.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">HRA</td><td class="num editable" contenteditable="true">0.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">SPECIAL ALLOWANCE</td><td class="num editable" contenteditable="true">0.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">ARREAR</td><td class="num editable" contenteditable="true">0.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">HRA @16</td><td class="num editable" contenteditable="true">5840.00</td><td></td><td></td></tr>
-      <tr><td class="editable" contenteditable="true">HRA @20</td><td class="num editable" contenteditable="true">0.00</td><td></td><td></td></tr>
-      <tr class="total-row">
-        <td>Total</td><td class="num" id="earningTotal">45625.00</td>
-        <td>Total</td><td class="num" id="deductionTotal">6774.00</td>
+
+
+      <!-- ROW 1 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          Basic Salary
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          36500.00
+        </td>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          PF
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          4774.00
+        </td>
+
       </tr>
+
+
+      <!-- ROW 2 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          GRADE PAY
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          TDS
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          2000.00
+        </td>
+
+      </tr>
+
+
+      <!-- ROW 3 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          DA
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 4 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          Dearness Allowance 7TH
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          3285.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 5 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          HRA
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 6 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          SPECIAL ALLOWANCE
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 7 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          ARREAR
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 8 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          HRA @16
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          5840.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- ROW 9 -->
+
+      <tr>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          HRA @20
+        </td>
+
+        <td
+          class="num amount editable"
+          contenteditable="true"
+        >
+          0.00
+        </td>
+
+        <td></td>
+
+        <td></td>
+
+      </tr>
+
+
+      <!-- =================================================
+           TOTAL
+      ================================================== -->
+
+      <tr class="total-row">
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          Total
+        </td>
+
+        <td
+          class="num"
+          id="earningTotal"
+        >
+          45625.00
+        </td>
+
+        <td
+          class="editable"
+          contenteditable="true"
+        >
+          Total
+        </td>
+
+        <td
+          class="num"
+          id="deductionTotal"
+        >
+          6774.00
+        </td>
+
+      </tr>
+
     </tbody>
+
   </table>
 
+
+  <!-- ===================================================
+       NET PAY
+  ==================================================== -->
+
   <div class="net-pay">
-    <div><b>Net Pay :</b> <span class="editable" contenteditable="true" id="netPay">38851.00</span></div>
-    <div class="words editable" contenteditable="true">(Thirty Eight Thousand Eight Hundred and Fifty One Rupees Only )</div>
+
+    <div>
+
+      <b
+        class="editable"
+        contenteditable="true"
+      >
+        Net Pay :
+      </b>
+
+      <span id="netPay">
+        38851.00
+      </span>
+
+    </div>
+
+
+    <div
+      class="words"
+      id="netPayWords"
+    >
+      (Thirty Eight Thousand Eight Hundred and Fifty One Rupees Only)
+    </div>
+
   </div>
+
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
 
   <div class="footer">
-    <div class="date editable" contenteditable="true">Date : February 02, 2019</div>
-    <div class="generated editable" contenteditable="true">System generated salary slip.</div>
-    <div class="signature">Signature</div>
+
+
+    <div
+      class="date editable"
+      contenteditable="true"
+    >
+      Date : February 02, 2019
+    </div>
+
+
+    <div
+      class="generated editable"
+      contenteditable="true"
+    >
+      System generated salary slip.
+    </div>
+
+
+    <div
+      class="signature editable"
+      contenteditable="true"
+    >
+      Signature
+    </div>
+
+
   </div>
+
 </div>
 
+
 <script src="script.js"></script>
+
 </body>
 </html>
