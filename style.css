@@ -1,60 +1,672 @@
-*{box-sizing:border-box}
-body{margin:0;background:#e9e9e9;font-family:"Times New Roman",serif;color:#111}
-.toolbar{position:sticky;top:0;z-index:10;background:#202020;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center}
-.toolbar-title{font-family:Arial,sans-serif;font-weight:700;margin-right:auto}
-button,.upload-btn{background:#fff;color:#111;border:0;border-radius:4px;padding:9px 14px;cursor:pointer;font-family:Arial,sans-serif;font-size:13px}
-button.secondary{background:#ddd}
-.editor{max-width:1100px;margin:14px auto;padding:12px;background:#fff;border:1px solid #ccc;display:grid;grid-template-columns:1fr 1fr;gap:10px;font-family:Arial,sans-serif}
-.editor label{font-size:12px;font-weight:600}
-.editor input{width:100%;margin-top:4px;padding:7px;border:1px solid #bbb;border-radius:3px}
-.page{width:1000px;min-height:1414px;margin:20px auto;background:#fff;border:1px solid #cfcfcf;padding:34px 38px 28px;box-shadow:0 2px 12px #aaa}
-.header{display:flex;align-items:flex-start;min-height:150px}
-.logo-box{width:115px;height:100px;display:flex;align-items:center;justify-content:center;margin-left:25px;margin-top:0}
-.logo-box img{max-width:90px;max-height:90px;object-fit:contain}
-.header-text{flex:1;text-align:center;padding-right:95px}
-.company{font-size:26px;font-weight:700;text-decoration:underline;line-height:1.05;margin-top:2px}
-.address,.phone{font-size:16px;line-height:1.35}
-.slip-title{font-size:19px;font-weight:700;margin-top:15px}
-.top-line{border-top:3px solid #222;margin:4px 0 36px}
-.employee-info{font-size:16px;margin-bottom:4px}
-.info-row{display:grid;grid-template-columns:170px 18px 320px 170px 18px 1fr;min-height:32px;align-items:center}
-.label{font-weight:700}
-.right-label{margin-left:2px}
-.colon{text-align:center}
-.value{min-width:50px}
-.editable{cursor:text}
-.editable:focus{outline:1px dashed #999;background:#fafafa}
-.salary-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:16px}
-.salary-table .earn-name{width:41%}.salary-table .amount{width:11%}
-.salary-table .ded-name{width:36%}.salary-table .amount2{width:12%}
-.salary-table th,.salary-table td{border-left:1px solid #222;border-right:1px solid #222;padding:7px 6px;height:32px}
-.salary-table thead th{border-top:2px solid #222;border-bottom:2px solid #222;font-weight:700;text-align:left}
-.salary-table thead th:nth-child(2),.salary-table thead th:nth-child(4){text-align:right}
-.salary-table tbody td{vertical-align:middle}
-.salary-table .num{text-align:right}
-.salary-table .total-row td{border-top:2px solid #222;border-bottom:2px solid #222;font-weight:700;padding-top:8px;padding-bottom:8px}
-.net-pay{margin-top:43px;font-size:17px}
-.net-pay .words{font-weight:700;margin-top:7px}
-.footer{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:88px;align-items:end;font-size:16px;font-weight:700}
-.generated{text-align:center}
-.signature{text-align:right}
-@media(max-width:1050px){.page{width:96%;padding:25px}.header-text{padding-right:30px}.info-row{grid-template-columns:150px 15px 1fr 150px 15px 1fr}}
-@media print{
-  @page{size:A4 portrait;margin:0}
-  body{background:#fff}
-  .toolbar,.editor{display:none!important}
-  .page{width:210mm;min-height:297mm;margin:0;border:1px solid #cfcfcf;box-shadow:none;padding:7.5mm 8.5mm 6mm}
-  .header{min-height:31mm}
-  .logo-box{width:25mm;height:24mm;margin-left:5mm}
-  .logo-box img{max-width:22mm;max-height:22mm}
-  .header-text{padding-right:20mm}
-  .company{font-size:19pt}.address,.phone{font-size:11pt}.slip-title{font-size:14pt;margin-top:4mm}
-  .top-line{margin:1mm 0 7mm}
-  .employee-info{font-size:10.5pt}
-  .info-row{grid-template-columns:36mm 4mm 65mm 36mm 4mm 1fr;min-height:7mm}
-  .salary-table{font-size:10.5pt}
-  .salary-table th,.salary-table td{padding:1.5mm 1.5mm;height:6.5mm}
-  .net-pay{margin-top:10mm;font-size:11pt}
-  .footer{margin-top:22mm;font-size:10pt}
-  .editable:focus{outline:none;background:none}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e9e9e9;
+  font-family: "Times New Roman", serif;
+  color: #111;
+}
+
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: #202020;
+  color: #fff;
+
+  padding: 10px 16px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+}
+
+.toolbar-title {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+
+  margin-right: auto;
+}
+
+button,
+.upload-btn {
+  background: #fff;
+  color: #111;
+
+  border: 0;
+  border-radius: 4px;
+
+  padding: 9px 14px;
+
+  cursor: pointer;
+
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+button:hover,
+.upload-btn:hover {
+  background: #eeeeee;
+}
+
+button.secondary {
+  background: #ddd;
+}
+
+
+/* =====================================================
+   EDITOR
+===================================================== */
+
+.editor {
+  max-width: 1100px;
+
+  margin: 14px auto;
+
+  padding: 12px;
+
+  background: #fff;
+
+  border: 1px solid #ccc;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  font-family: Arial, sans-serif;
+}
+
+.editor label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.editor input {
+  width: 100%;
+
+  margin-top: 4px;
+
+  padding: 7px;
+
+  border: 1px solid #bbb;
+
+  border-radius: 3px;
+}
+
+
+/* =====================================================
+   A4 PAGE
+===================================================== */
+
+.page {
+
+  width: 1000px;
+
+  min-height: 1414px;
+
+  margin: 20px auto;
+
+  background: #fff;
+
+  /*
+     FADED BROWN OUTER BORDER
+  */
+
+  border: 1px solid rgba(145, 105, 70, 0.42);
+
+  /*
+     Very soft brown shadow
+  */
+
+  box-shadow:
+    0 2px 12px rgba(120, 90, 60, 0.22);
+
+  padding: 34px 38px 28px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  min-height: 150px;
+}
+
+.logo-box {
+
+  width: 115px;
+
+  height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-left: 25px;
+
+  margin-top: 0;
+}
+
+.logo-box img {
+
+  max-width: 90px;
+
+  max-height: 90px;
+
+  object-fit: contain;
+}
+
+
+.header-text {
+
+  flex: 1;
+
+  text-align: center;
+
+  padding-right: 95px;
+}
+
+
+.company {
+
+  font-size: 26px;
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  line-height: 1.05;
+
+  margin-top: 2px;
+}
+
+
+.address,
+.phone {
+
+  font-size: 16px;
+
+  line-height: 1.35;
+}
+
+
+.slip-title {
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  margin-top: 15px;
+}
+
+
+/* =====================================================
+   TOP LINE
+===================================================== */
+
+.top-line {
+
+  border-top: 3px solid #222;
+
+  margin: 4px 0 36px;
+}
+
+
+/* =====================================================
+   EMPLOYEE INFORMATION
+===================================================== */
+
+.employee-info {
+
+  font-size: 16px;
+
+  margin-bottom: 4px;
+}
+
+
+.info-row {
+
+  display: grid;
+
+  grid-template-columns:
+    170px
+    18px
+    320px
+    170px
+    18px
+    1fr;
+
+  min-height: 32px;
+
+  align-items: center;
+}
+
+
+.label {
+
+  font-weight: 700;
+}
+
+
+.right-label {
+
+  margin-left: 2px;
+}
+
+
+.colon {
+
+  text-align: center;
+}
+
+
+.value {
+
+  min-width: 50px;
+}
+
+
+/* =====================================================
+   EDITABLE
+===================================================== */
+
+.editable {
+
+  cursor: text;
+}
+
+
+.editable:hover {
+
+  background: rgba(220, 220, 220, 0.15);
+}
+
+
+.editable:focus {
+
+  outline: 1px dashed #999;
+
+  background: #fafafa;
+}
+
+
+/* =====================================================
+   SALARY TABLE
+===================================================== */
+
+.salary-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+
+  font-size: 16px;
+}
+
+
+.salary-table .earn-name {
+  width: 41%;
+}
+
+
+.salary-table .amount {
+  width: 11%;
+}
+
+
+.salary-table .ded-name {
+  width: 36%;
+}
+
+
+.salary-table .amount2 {
+  width: 12%;
+}
+
+
+.salary-table th,
+.salary-table td {
+
+  border-left: 1px solid #222;
+
+  border-right: 1px solid #222;
+
+  padding: 7px 6px;
+
+  height: 32px;
+}
+
+
+.salary-table thead th {
+
+  border-top: 2px solid #222;
+
+  border-bottom: 2px solid #222;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+.salary-table thead th:nth-child(2),
+.salary-table thead th:nth-child(4) {
+
+  text-align: right;
+}
+
+
+.salary-table tbody td {
+
+  vertical-align: middle;
+}
+
+
+.salary-table .num {
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.salary-table .total-row td {
+
+  border-top: 2px solid #222;
+
+  border-bottom: 2px solid #222;
+
+  font-weight: 700;
+
+  padding-top: 8px;
+
+  padding-bottom: 8px;
+}
+
+
+/* =====================================================
+   NET PAY
+===================================================== */
+
+.net-pay {
+
+  margin-top: 43px;
+
+  font-size: 17px;
+}
+
+
+.net-pay .words {
+
+  font-weight: 700;
+
+  margin-top: 7px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+  margin-top: 88px;
+
+  align-items: end;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+.generated {
+
+  text-align: center;
+}
+
+
+.signature {
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px) {
+
+  .page {
+
+    width: 96%;
+
+    padding: 25px;
+  }
+
+  .header-text {
+
+    padding-right: 30px;
+  }
+
+  .info-row {
+
+    grid-template-columns:
+      150px
+      15px
+      1fr
+      150px
+      15px
+      1fr;
+  }
+
+}
+
+
+/* =====================================================
+   PRINT - A4 ONLY
+===================================================== */
+
+@media print {
+
+  @page {
+
+    size: A4 portrait;
+
+    margin: 0;
+  }
+
+
+  html,
+  body {
+
+    width: 210mm;
+
+    min-height: 297mm;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: #fff !important;
+  }
+
+
+  .toolbar,
+  .editor {
+
+    display: none !important;
+  }
+
+
+  .page {
+
+    width: 210mm !important;
+
+    min-height: 297mm !important;
+
+    margin: 0 !important;
+
+    /*
+       Faded brown border
+    */
+
+    border: 1px solid rgba(145, 105, 70, 0.42) !important;
+
+    box-shadow: none !important;
+
+    padding:
+      7.5mm
+      8.5mm
+      6mm;
+  }
+
+
+  .header {
+
+    min-height: 31mm;
+  }
+
+
+  .logo-box {
+
+    width: 25mm;
+
+    height: 24mm;
+
+    margin-left: 5mm;
+  }
+
+
+  .logo-box img {
+
+    max-width: 22mm;
+
+    max-height: 22mm;
+  }
+
+
+  .header-text {
+
+    padding-right: 20mm;
+  }
+
+
+  .company {
+
+    font-size: 19pt;
+  }
+
+
+  .address,
+  .phone {
+
+    font-size: 11pt;
+  }
+
+
+  .slip-title {
+
+    font-size: 14pt;
+
+    margin-top: 4mm;
+  }
+
+
+  .top-line {
+
+    margin: 1mm 0 7mm;
+  }
+
+
+  .employee-info {
+
+    font-size: 10.5pt;
+  }
+
+
+  .info-row {
+
+    grid-template-columns:
+      36mm
+      4mm
+      65mm
+      36mm
+      4mm
+      1fr;
+
+    min-height: 7mm;
+  }
+
+
+  .salary-table {
+
+    font-size: 10.5pt;
+  }
+
+
+  .salary-table th,
+  .salary-table td {
+
+    padding: 1.5mm 1.5mm;
+
+    height: 6.5mm;
+  }
+
+
+  .net-pay {
+
+    margin-top: 10mm;
+
+    font-size: 11pt;
+  }
+
+
+  .footer {
+
+    margin-top: 22mm;
+
+    font-size: 10pt;
+  }
+
+
+  .editable:focus {
+
+    outline: none;
+
+    background: none;
+  }
+
 }
